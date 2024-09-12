@@ -2,10 +2,8 @@ import pandas as pd
 import os
 
 # Define the path where the PVC is mounted
-pvc_mount_path = 'MODEL_PATH1'
+pvc_mount_path = '/etc/myapp'
 
-# Ensure the directory exists
-os.makedirs(pvc_mount_path, exist_ok=True)
 
 # Sample data to be saved to CSV
 data = {
