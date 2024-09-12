@@ -13,7 +13,8 @@ app = Flask(__name__)
 def hello_world():
     df = pd.DataFrame({'Data': [1, 2, 3]})
     df.to_csv('MODEL_PATH1/test.csv')
-    return  'Hello, OpenShift with Docker!'
+    print('The data is saved in MODEL_PATH1 ')
+    return 'Hello, OpenShift with Docker!'
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
