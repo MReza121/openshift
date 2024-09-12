@@ -1,6 +1,26 @@
 # app.py
 from flask import Flask
-import pandas as pd
+import os
+
+# Define the path where the PVC is mounted
+mount_path = '/MODEL_PATH1'
+file_path = os.path.join(mount_path, 'example.txt')
+
+# Data to be written
+data = 'Hello, OpenShift PVC!'
+
+# Write data to the file
+with open(file_path, 'w') as file:
+    file.write(data)
+
+print(f'Data has been written to {file_path}')
+
+
+
+
+
+
+
 
 
 app = Flask(__name__)
@@ -11,9 +31,6 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    df = pd.DataFrame({'Data': [1, 2, 3]})
-    df.to_csv('MODEL_PATH1/test.csv')
-    print('The data is saved in MODEL_PATH1 ')
     return 'Hello, OpenShift with Docker!'
 
 if __name__ == '__main__':
