@@ -1,16 +1,25 @@
-# app.py
-from flask import Flask
+import pandas as pd
 import os
 
 # Define the path where the PVC is mounted
-mount_path = '/MODEL_PATH1'
-file_path = os.path.join(mount_path, 'example.txt')
+pvc_mount_path = 'MODEL_PATH1'
 
-# Data to be written
-data = 'Hello, OpenShift PVC!'
+# Ensure the directory exists
+os.makedirs(pvc_mount_path, exist_ok=True)
 
-# Write data to the file
-with open(file_path, 'w') as file:
-    file.write(data)
+# Sample data to be saved to CSV
+data = {
+    'Column1': [1, 2, 3],
+    'Column2': ['A', 'B', 'C']
+}
 
-print(f'Data has been written to {file_path}')
+# Create a DataFrame
+df = pd.DataFrame(data)
+
+# Define the CSV file path within the PVC mount
+csv_file_path = os.path.join(pvc_mount_path, 'data.csv')
+
+# Save the DataFrame to CSV
+df.to_csv(csv_file_path, index=False)
+
+print(f"CSV file saved to {csv_file_path}")
