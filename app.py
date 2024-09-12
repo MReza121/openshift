@@ -2,7 +2,7 @@ import pandas as pd
 import os
 
 # Define the path where the PVC is mounted
-pvc_mount_path = '/etc/myapp'
+pvc_mount_path = '/etc/mymodel'
 
 
 # Sample data to be saved to CSV
