@@ -14,24 +14,3 @@ with open(file_path, 'w') as file:
     file.write(data)
 
 print(f'Data has been written to {file_path}')
-
-
-
-
-
-
-
-
-
-app = Flask(__name__)
-
-# @app.route('/')
-# def hello_world():
-#     return 'Hello, OpenShift with Docker!'
-
-@app.route('/')
-def hello_world():
-    return 'Hello, OpenShift with Docker!'
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
